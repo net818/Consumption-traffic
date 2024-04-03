@@ -1,7 +1,5 @@
 #!/bin/bash
 (apt update && apt install -y cbm lsof) > /dev/null 2>&1
-echo "温馨提示!"
-echo "请在脚本执行完后输入 cbm 命令检查 eth0 网卡是否在跑流量"
 
 service=$(sudo lsof -i :80 | awk 'NR==2 {print $1}')
 
@@ -12,9 +10,10 @@ if [ ! -z "$service" ]; then
         sudo kill -9 $pid
     else
        
-    fi
 fi
 
+echo "温馨提示!"
+echo "请在脚本执行完后输入 cbm 命令检查 eth0 网卡是否在跑流量"
 read -p "请输入已解析本机IP的域名或者本机IP(如果等下流量没在跑就给域名套上CF): " domain_name
 
 echo "请选择安装选项："
