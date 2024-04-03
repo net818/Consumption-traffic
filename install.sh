@@ -1,15 +1,15 @@
 #!/bin/bash
 
-read -p "请输入已解析本机IP的域名: " domain_name
+read -p "请输入已解析本机IP的域名或者本机IP: " domain_name
 
 echo "请选择安装选项："
-echo "1. 直接跑流量"
+echo "1. 直接24小时持续跑流量"
 echo "2. 随机时间跑流量"
 read -p "请输入你的选择（1或2）：" choice
 
 case $choice in
     1)
-        echo "正在下载 '直接跑流量' 脚本..."
+        echo "正在下载 '直接24小时持续跑流量' 脚本..."
         url="https://github.com/net818/Consumption-traffic/raw/main/pp.sh"
         script_file="script.sh"
         wget -O $script_file $url
