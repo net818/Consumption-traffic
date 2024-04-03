@@ -3,11 +3,13 @@
 echo "温馨提示!"
 echo "请在脚本执行完后输入 cbm 命令检查 eth0 网卡是否在跑流量"
 
-service=$(sudo lsof -i :80 -t)
+service=$(sudo lsof -i :80 | awk 'NR==2 {print $1}')
+
 if [ ! -z "$service" ]; then
-    if ! sudo lsof -i :80 | grep -q nginx; then
+    if [ "$service" != "nginx" ]; then
         echo "80端口被$service占用，现在将其终止..."
-        sudo kill -9 $service
+        pid=$(sudo lsof -i :80 -t)
+        sudo kill -9 $pid
     else
     fi
 fi
