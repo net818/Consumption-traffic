@@ -8,7 +8,7 @@ if [ ! -z "$service" ]; then
         echo "80端口被$service占用，现在将其终止..."
         pid=$(sudo lsof -i :80 -t)
         sudo kill -9 $pid
-
+fi
 echo "温馨提示!"
 echo "请在脚本执行完后输入 cbm 命令检查 eth0 网卡是否在跑流量"
 read -p "请输入已解析本机IP的域名或者本机IP(如果等下流量没在跑就给域名套上CF): " domain_name
