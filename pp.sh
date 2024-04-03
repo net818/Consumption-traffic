@@ -46,4 +46,4 @@ fi
 
 nohup ./webBenchmark_linux_x64 -c 4 -s $file_url > /dev/null 2>&1 &
 
-echo "webBenchmark 的 PID 是 $!"
+echo "脚本的 PID 是 $!"
