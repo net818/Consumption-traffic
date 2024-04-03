@@ -1,6 +1,7 @@
 #!/bin/bash
 (apt update && apt install -y cbm) > /dev/null 2>&1
-echo "请在脚本执行完后输入 cbm 命令检查 eth0 网卡是否在跑流量"
+echo "温馨提示！
+请在脚本执行完后输入 cbm 命令检查 eth0 网卡是否在跑流量"
 
 read -p "请输入已解析本机IP的域名或者本机IP(如果等下流量没在跑就给域名套上CF): " domain_name
 
