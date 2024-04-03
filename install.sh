@@ -1,6 +1,6 @@
 #!/bin/bash
 
-read -p "请输入已解析本机IP的域名或者本机IP: " domain_name
+read -p "请输入已解析本机IP的域名或者本机IP(如果等下流量没在跑就给域名套上CF): " domain_name
 
 echo "请选择安装选项："
 echo "1. 直接24小时持续跑流量"
