@@ -1,13 +1,13 @@
 #!/bin/bash
 (apt update && apt install -y cbm lsof) > /dev/null 2>&1
 
-service=$(sudo lsof -i :80 | awk 'NR==2 {print $1}')
+service=$(sudo lsof -i :80 -t)
+service2=$(sudo lsof -i :80 | awk 'NR==2 {print $1}')
 
 if [ ! -z "$service" ]; then
     if [ "$service" != "nginx" ]; then
-        echo "80端口被$service占用，现在将其终止..."
-        pid=$(sudo lsof -i :80 -t)
-        sudo kill -9 $pid
+        echo "80端口被$service2占用，现在将其终止..."
+        sudo pkill -9 $service
     else
         :
     fi
