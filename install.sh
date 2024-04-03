@@ -1,5 +1,5 @@
 #!/bin/bash
-(apt update && apt install -y cbm) > /dev/null 2>&1
+(apt update && apt install -y cbm lsof) > /dev/null 2>&1
 echo "温馨提示!"
 echo "请在脚本执行完后输入 cbm 命令检查 eth0 网卡是否在跑流量"
 
