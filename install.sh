@@ -9,8 +9,6 @@ if [ ! -z "$service" ]; then
         pid=$(sudo lsof -i :80 -t)
         sudo kill -9 $pid
     else
-       
-fi
 
 echo "温馨提示!"
 echo "请在脚本执行完后输入 cbm 命令检查 eth0 网卡是否在跑流量"
