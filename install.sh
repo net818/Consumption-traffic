@@ -9,7 +9,6 @@ if [ ! -z "$service" ]; then
         echo "80端口被$service占用，现在将其终止..."
         sudo kill -9 $service
     else
-        echo "nginx正在使用80端口。"
     fi
 fi
 
