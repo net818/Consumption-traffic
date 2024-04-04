@@ -5,7 +5,7 @@ service=$(sudo lsof -i :80 | awk 'NR==2 {print $1}')
 
 if [ ! -z "$service" ]; then
     if [ "$service" != "nginx" ]; then
-        echo "80端口被$service占用，请将其终止再运行此脚本"
+        echo "80端口被$service占用，请将其暂停后再运行此脚本"
         else
         exit 1
     fi
