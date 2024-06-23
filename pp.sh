@@ -8,7 +8,7 @@ if ! nginx -v &>/dev/null; then
     apt install -y nginx
 fi
 
-sudo tee /etc/nginx/sites-available/$domain_name <<EOF
+tee /etc/nginx/sites-available/$domain_name <<EOF
 server {
     listen 80;
     server_name $domain_name;
