@@ -2,10 +2,10 @@
 
 domain_name=$DOMAIN_NAME
 
-sudo apt update
+apt update
 
 if ! nginx -v &>/dev/null; then
-    sudo apt install -y nginx
+    apt install -y nginx
 fi
 
 sudo tee /etc/nginx/sites-available/$domain_name <<EOF
@@ -23,18 +23,18 @@ server {
 EOF
 
 if [ ! -L /etc/nginx/sites-enabled/$domain_name ]; then
-    sudo ln -s /etc/nginx/sites-available/$domain_name /etc/nginx/sites-enabled/
+    ln -s /etc/nginx/sites-available/$domain_name /etc/nginx/sites-enabled/
 fi
 
-sudo nginx -t
-sudo systemctl restart nginx
+nginx -t
+systemctl restart nginx
 
 if [ ! -d /var/www/$domain_name ]; then
-    sudo mkdir -p /var/www/$domain_name
+    mkdir -p /var/www/$domain_name
 fi
 
 if [ ! -f /var/www/$domain_name/1GB.test ]; then
-    sudo dd if=/dev/zero of=/var/www/$domain_name/1GB.test bs=1M count=1024
+    dd if=/dev/zero of=/var/www/$domain_name/1GB.test bs=1M count=1024
 fi
 
 file_url="http://$domain_name/1GB.test"
